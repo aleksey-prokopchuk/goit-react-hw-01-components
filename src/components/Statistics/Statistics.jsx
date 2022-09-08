@@ -1,20 +1,31 @@
-const Statistics = ({ stats }) => {
+import PropTypes from 'prop-types';
+import css from './Statistics.module.css';
+const Statistics = ({ title, stats }) => {
   //   const { label, percentage } = data;
   //   console.log(stats);
   return (
-    <section class="statistics">
-      <h2 class="title">Upload stats</h2>
+    <section className={css.statistics}>
+      <h2 className={css.title}>{title}</h2>
 
-      <ul class="stat-list">
+      <ul className={css['stat-list']}>
         {stats.map(stat => (
-          <li key={stat.id} class="item">
-            <span class="label">{stat.label}</span>
-            <span class="percentage">{stat.percentage}</span>
+          <li key={stat.id} className={css.item}>
+            <span className={css.label}>{stat.label}</span>
+            <span className={css.percentage}>{stat.percentage}%</span>
           </li>
         ))}
       </ul>
     </section>
   );
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
+  stat: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }),
 };
 
 export default Statistics;
