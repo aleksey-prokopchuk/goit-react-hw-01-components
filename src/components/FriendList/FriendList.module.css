@@ -18,6 +18,15 @@
 }
 
 .status {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(43, 255, 0);
+
+  border-radius: 50%;
+}
+
+.isOfnline {
+  background-color: rgb(255, 0, 0);
 }
 
 .avatar {
